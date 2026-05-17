@@ -1,8 +1,10 @@
-# EDA Log Analyzer
+# EDA Report Parser
 
 A Python automation tool for parsing and extracting structured data from EDA (Electronic Design Automation) report files — specifically **Timing Reports** and **DRC (Design Rule Check) Reports** — and exporting the results to clean, analysis-ready **CSV files**.
 
-This project demonstrates backend LSI automation skills, including object-oriented design, regular expression parsing, and command-line tooling.
+After each analysis, the tool automatically prints a **summary statistics table** to the terminal, highlighting critical metrics such as Worst Negative Slack (WNS) and DRC violation counts per rule and layer.
+
+This project demonstrates backend LSI automation skills, including object-oriented design, regular expression parsing, summary reporting, and command-line tooling.
 
 ---
 
@@ -22,6 +24,7 @@ These files can contain **thousands of lines**, making manual inspection extreme
 - ✅ Parses **Timing Reports** — extracts Startpoint, Endpoint, Path Group, Status (MET/VIOLATED), and Slack value
 - ✅ Parses **DRC Reports** — extracts Violation Type, Layer, Coordinates (X1/Y1 → X2/Y2), and Source nets
 - ✅ **Auto-detects report format** — supports both simple and real OpenSTA/OpenROAD formats without configuration
+- ✅ Prints **summary statistics table** after each analysis (WNS, TNS, violation counts by rule and layer)
 - ✅ Exports all extracted data to **structured CSV files**
 - ✅ Clean **Command-Line Interface (CLI)** using `argparse`
 - ✅ Professional logging with Python's built-in `logging` module
@@ -42,7 +45,8 @@ eda_log_analyzer/
 │
 ├── utils/                    # Shared utilities
 │   ├── __init__.py
-│   └── csv_writer.py         # Writes extracted data to CSV
+│   ├── csv_writer.py         # Writes extracted data to CSV
+│   └── reporter.py           # Prints summary statistics table to terminal
 │
 ├── data/                     # Sample input report files for testing
 │   ├── sample_timing.rpt     # Simple timing report (for learning)
@@ -98,7 +102,50 @@ python main.py --help
 
 ---
 
-## 📊 Output Format
+## 🖥️ Terminal Output
+
+After running, the tool prints a formatted summary directly in the terminal:
+
+```
+2026-05-17 - INFO - Parsing Timing report: data/opensta_timing.rpt
+2026-05-17 - INFO - Successfully exported to: output/timing_summary.csv
+
+  +--------------------------------------+
+  |        TIMING ANALYSIS SUMMARY       |
+  +--------------------------------------+
+  |  Total Paths      : 3                |
+  |  MET              : 2 (66.7%)        |
+  |  VIOLATED         : 1                |
+  +--------------------------------------+
+  |  WNS (Worst Slack): -0.0100 ns       |
+  |  TNS (Total Neg.) : -0.0100 ns       |
+  +--------------------------------------+
+
+  [!] Worst Violated Path:
+      _715_  ->  _698_
+      Slack = -0.01 ns  |  Group: clk
+
+  +--------------------------------------+
+  |         DRC VIOLATION SUMMARY        |
+  +--------------------------------------+
+  |  Total Violations : 5                |
+  +--------------------------------------+
+  |  By Rule Type:                       |
+  |    [ 2x]  Short                      |
+  |    [ 1x]  Metal spacing              |
+  |    [ 1x]  Via enclosure              |
+  |    [ 1x]  Metal width                |
+  +--------------------------------------+
+  |  By Layer:                           |
+  |    [ 2x]  metal2                     |
+  |    [ 2x]  metal1                     |
+  |    [ 1x]  metal3                     |
+  +--------------------------------------+
+```
+
+---
+
+## 📊 CSV Output Format
 
 ### `timing_summary.csv`
 
@@ -148,7 +195,7 @@ Due to the modular OOP design, this tool can be extended to support:
 - LVS (Layout vs. Schematic) reports
 - Power / IR-Drop reports (e.g., from Cadence Voltus or Apache RedHawk)
 - Congestion reports from Global Routing
-- Automatic summary statistics (Worst Negative Slack, total violation count)
+- Batch processing of multiple report files in one run
 - Integration with data visualization tools (e.g., pandas, matplotlib)
 
 ---
@@ -161,8 +208,3 @@ The realistic sample files in `data/` are modeled after output from open-source 
 
 ---
 
-## 👤 Author
-
-Developed as a portfolio project demonstrating Python automation skills applied to the LSI physical design domain.
-
-*Target role: LSI Backend Engineer (Physical Design / STA Automation)*
