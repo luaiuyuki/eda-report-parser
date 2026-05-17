@@ -1,0 +1,36 @@
+Startpoint: reg_A (rising edge-triggered flip-flop)
+Endpoint: reg_B (rising edge-triggered flip-flop)
+Path Group: clk
+Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  reg_A/CK (DFF)                           0.00       0.00 r
+  reg_A/Q (DFF)                            0.15       0.15 r
+  U1/Y (INV)                               0.05       0.20 f
+  reg_B/D (DFF)                            0.02       0.22 f
+  data arrival time                                   0.22
+
+  clock clk (rise edge)                   10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  clock reconvergence pessimism            0.00      10.00
+  reg_B/CK (DFF)                                     10.00 r
+  library setup time                      -0.10       9.90
+  data required time                                  9.90
+  -----------------------------------------------------------
+  data required time                                  9.90
+  data arrival time                                  -0.22
+  -----------------------------------------------------------
+  slack (MET)                                         9.68
+
+Startpoint: reg_C (rising edge-triggered flip-flop)
+Endpoint: reg_D (rising edge-triggered flip-flop)
+Path Group: clk
+Path Type: max
+  -----------------------------------------------------------
+  data required time                                  5.00
+  data arrival time                                  -6.00
+  -----------------------------------------------------------
+  slack (VIOLATED)                                   -1.00

@@ -1,0 +1,23 @@
+# Python bytecode cache — không cần đưa lên GitHub
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Thư mục output (kết quả CSV) — không cần đưa lên GitHub
+output/
+
+# File tải thử nghiệm
+data/test_download.txt
+
+# Môi trường ảo Python
+venv/
+env/
+.env
+
+# VS Code settings
+.vscode/
+
+# Windows
+Thumbs.db
+desktop.ini

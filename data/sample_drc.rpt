@@ -1,0 +1,18 @@
+Rule: M1.S.1
+Description: Min spacing between M1 = 0.050
+Violation 1:
+  Layer: M1
+  Coordinate: (10.000, 20.000)
+  Width: 0.040
+
+Rule: VIA1.E.1
+Description: Min enclosure of VIA1 by M1 = 0.020
+Violation 1:
+  Layer: VIA1
+  Coordinate: (15.500, 30.200)
+
+Rule: M2.W.1
+Description: Min width of M2 = 0.060
+Violation 1:
+  Layer: M2
+  Coordinate: (120.050, 45.100)

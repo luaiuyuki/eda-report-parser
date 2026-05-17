@@ -1,0 +1,32 @@
+DRC Report
+Design: gcd
+Technology: Nangate45
+Tool: OpenROAD TritonRoute v2.0
+Date: 2024-01-15
+
+Total number of violations: 5
+
+violation type: Short
+  srcs: net36 net22
+  bbox = ( 48.29, 12.54 ) - ( 48.43, 12.96 ) on Layer metal2
+  bbox = ( 48.29, 12.54 ) - ( 48.43, 12.96 ) on Layer metal2
+
+violation type: Metal spacing
+  srcs: _367_/ZN _376_/A1
+  bbox = ( 10.26, 5.32 ) - ( 10.40, 5.60 ) on Layer metal1
+  bbox = ( 10.26, 5.32 ) - ( 10.40, 5.60 ) on Layer metal1
+
+violation type: Via enclosure
+  srcs: net5
+  bbox = ( 25.00, 8.74 ) - ( 25.19, 8.93 ) on Layer metal1
+  bbox = ( 25.00, 8.74 ) - ( 25.19, 8.93 ) on Layer metal1
+
+violation type: Metal width
+  srcs: net88
+  bbox = ( 102.54, 30.10 ) - ( 102.60, 30.50 ) on Layer metal3
+  bbox = ( 102.54, 30.10 ) - ( 102.60, 30.50 ) on Layer metal3
+
+violation type: Short
+  srcs: net2 net45
+  bbox = ( 5.70, 20.14 ) - ( 5.84, 20.46 ) on Layer metal2
+  bbox = ( 5.70, 20.14 ) - ( 5.84, 20.46 ) on Layer metal2
