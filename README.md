@@ -228,13 +228,13 @@ When executed, the tool outputs real-time logs and yields high-fidelity ASCII su
 
 ### 📸 Project Portfolio Screenshots
 
-#### 1. Terminal Analytics & Statistical Reports
-The tool outputs highly readable, formatted ASCII statistical tables directly to the command line, showing Worst Negative Slack (WNS), Total Negative Slack (TNS), and DRC layer distribution.
+#### 1. DRC Violation Analytics (Terminal Output)
+The tool displays structured ASCII tables on the terminal summarizing total DRC violations grouped and sorted by rule types and physical metal/via layers.
 
 ![Terminal Output](screenshots/terminal_output.png)
 
-#### 2. Physical Design Log Parsing Comparison
-Transforming complex, thousands-of-lines raw text reports into structured, clean, and analysis-ready CSV schemas:
+#### 2. Timing Analysis Statistics (Terminal Output)
+The tool outputs real-time statistical breakdowns of Worst Negative Slack (WNS), Total Negative Slack (TNS), path success rates, and details of the worst failing setup/hold paths.
 
 ![Raw Report to CSV Comparison](screenshots/raw_vs_csv.png)
 
@@ -243,8 +243,8 @@ Every parser format and edge-case is backed by mock-based unit tests to ensure h
 
 ![Unit Tests Passing](screenshots/unit_tests.png)
 
-#### 4. Professional OOP Codebase Architecture
-Fully decoupled project workspace adopting Abstract Base Class (ABC) patterns and clean modular structures:
+#### 4. Complete VS Code Workspace & OOP Architecture
+A professional development environment showcasing both the modular directory structure on the left explorer and the split-screen comparison showing raw report logs mapped to clean CSV schemas on the right.
 
 ![IDE Code Workspace](screenshots/ide_workspace.png)
 
