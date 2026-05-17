@@ -48,6 +48,11 @@ eda_log_analyzer/
 │   ├── csv_writer.py         # Writes extracted data to CSV
 │   └── reporter.py           # Prints summary statistics table to terminal
 │
+├── tests/                    # Unit tests (Mocking & Assertions)
+│   ├── __init__.py
+│   ├── test_timing_parser.py
+│   └── test_drc_parser.py
+│
 ├── data/                     # Sample input report files for testing
 │   ├── sample_timing.rpt     # Simple timing report (for learning)
 │   ├── opensta_timing.rpt    # Realistic OpenSTA-format timing report
@@ -98,6 +103,13 @@ python main.py --timing data/opensta_timing.rpt --drc data/real_drc.rpt --outdir
 **Show help:**
 ```bash
 python main.py --help
+```
+
+### Run Unit Tests
+
+This project includes robust unit tests covering all parser formats. To run the test suite:
+```bash
+python -m unittest discover tests
 ```
 
 ---
