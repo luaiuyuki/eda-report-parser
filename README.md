@@ -335,8 +335,4 @@ To take this automation tool to the production scale, the following extensions a
 2. **📈 Slack Distribution Histograms**: Graphically display WNS distributions to analyze design margin bottlenecks before physical optimization.
 3. **⚡ Multithreading Support**: Execute the parsing logic of multiple Timing/DRC logs in parallel utilizing Python's `multiprocessing` to parse gigabytes of design log files within seconds.
 4. **🔗 Pipeline Ingestion**: Add JSON or REST API export features to easily ingest metrics into enterprise database monitoring tools like Grafana or Elasticsearch.
-
 ---
-
-## 📝 License
-This project is licensed under the MIT License - see the LICENSE file for details.
